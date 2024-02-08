@@ -1,6 +1,6 @@
 CC := clang
 
-CFLAGS ?= -target arm64-apple-macos11 -Wall -Werror $(shell pkg-config --cflags libcrypto) -fPIC -Wno-pointer-to-int-cast -Wno-unused-command-line-argument -Wno-deprecated-declarations -framework CoreFoundation
+CFLAGS ?= -Wall -Werror $(shell pkg-config --cflags libcrypto) -fPIC -Wno-pointer-to-int-cast -Wno-unused-command-line-argument -Wno-deprecated-declarations -framework CoreFoundation
 LDFLAGS ?= 
 DYLIB_LDFLAGS ?= 
 
@@ -27,7 +27,7 @@ OUTPUT_DIR := output
 ifeq ($(DISABLE_SIGNING), 0)
 CFLAGS += $(shell pkg-config --libs libcrypto)
 endif
-CFLAGS += -mmacosx-version-min=10.13
+CFLAGS += -target arm64-apple-macos11
 endif
 
 ifeq ($(DISABLE_SIGNING), 1)

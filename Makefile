@@ -1,6 +1,6 @@
 CC := clang
 
-CFLAGS ?= -Wall -Werror $(shell pkg-config --cflags libcrypto) -fPIC -Wno-pointer-to-int-cast -Wno-unused-command-line-argument -Wno-deprecated-declarations -framework CoreFoundation
+CFLAGS ?= -target arm64-apple-macos11 -Wall -Werror $(shell pkg-config --cflags libcrypto) -fPIC -Wno-pointer-to-int-cast -Wno-unused-command-line-argument -Wno-deprecated-declarations -framework CoreFoundation
 LDFLAGS ?= 
 DYLIB_LDFLAGS ?= 
 
